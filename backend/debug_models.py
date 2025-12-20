@@ -1,7 +1,6 @@
 import google.generativeai as genai
 import os
 
-# Configure the SDK with your key
 api_key = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=api_key)
 
@@ -11,7 +10,6 @@ try:
     print("\n--- AVAILABLE MODELS ---")
     found_any = False
     for m in genai.list_models():
-        # We only care about models that can generate text
         if 'generateContent' in m.supported_generation_methods:
             print(f"Name: {m.name}")
             found_any = True

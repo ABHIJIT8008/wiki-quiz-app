@@ -51,7 +51,6 @@ export default function UrlForm({ onSubmit, isLoading }) {
         </button>
       </form>
 
-      {/* Quick suggestions for testing */}
       <div className="flex justify-center gap-2 text-sm text-gray-500">
         <span>Try:</span>
         <button 

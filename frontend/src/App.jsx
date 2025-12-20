@@ -8,7 +8,7 @@ import HistoryList from './components/HistoryList';
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 function App() {
-  const [view, setView] = useState('create'); // 'create', 'history', 'game'
+  const [view, setView] = useState('create');
   const [quizData, setQuizData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,7 +19,7 @@ function App() {
     try {
       const res = await axios.post(`${API_URL}/generate-quiz`, { url, num_questions: 5 });
       setQuizData(res.data);
-      setView('game'); // Switch directly to game view
+      setView('game');
     } catch (err) {
       setError(err.response?.data?.detail || "Failed to generate quiz.");
     } finally {
@@ -34,7 +34,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
-      {/* --- NAVBAR --- */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
@@ -66,10 +65,8 @@ function App() {
         </div>
       </nav>
 
-      {/* --- MAIN CONTENT --- */}
       <main className="max-w-5xl mx-auto px-4 py-8">
         
-        {/* VIEW: CREATE */}
         {view === 'create' && (
           <div className="flex flex-col items-center justify-center py-12">
             <UrlForm onSubmit={generateQuiz} isLoading={loading} />
@@ -81,12 +78,10 @@ function App() {
           </div>
         )}
 
-        {/* VIEW: HISTORY */}
         {view === 'history' && (
           <HistoryList onSelectQuiz={startHistoryQuiz} />
         )}
 
-        {/* VIEW: GAME */}
         {view === 'game' && quizData && (
           <div className="w-full">
             <button 

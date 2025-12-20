@@ -11,7 +11,7 @@ export default function QuizGame({ title, questions, onReset }) {
   const currentQuestion = questions[currentIndex];
 
   const handleOptionClick = (option) => {
-    if (selectedOption) return; // Prevent changing answer
+    if (selectedOption) return;
     
     setSelectedOption(option);
     setShowExplanation(true);
@@ -31,7 +31,6 @@ export default function QuizGame({ title, questions, onReset }) {
     }
   };
 
-  // --- GAME OVER SCREEN ---
   if (isFinished) {
     return (
       <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden p-8 text-center animate-in fade-in zoom-in duration-300">
@@ -54,36 +53,31 @@ export default function QuizGame({ title, questions, onReset }) {
     );
   }
 
-  // --- QUESTION CARD ---
   return (
     <div className="w-full max-w-2xl mx-auto">
-      {/* Progress Bar */}
       <div className="mb-6 flex justify-between items-center text-sm font-medium text-gray-500">
         <span>Question {currentIndex + 1} of {questions.length}</span>
         <span>Score: {score}</span>
       </div>
       
       <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-        {/* Question Header */}
         <div className="bg-blue-600 p-6 text-white">
           <h2 className="text-xl font-bold leading-relaxed">
             {currentQuestion.question}
           </h2>
         </div>
 
-        {/* Options List */}
         <div className="p-6 space-y-3">
           {currentQuestion.options.map((option, idx) => {
             const isSelected = selectedOption === option;
             const isCorrect = option === currentQuestion.correct_answer;
             const isWrong = isSelected && !isCorrect;
             
-            // Dynamic styling logic
             let buttonStyle = "border-gray-200 hover:border-blue-500 hover:bg-blue-50";
             if (selectedOption) {
               if (isCorrect) buttonStyle = "border-green-500 bg-green-50 text-green-700";
               else if (isWrong) buttonStyle = "border-red-500 bg-red-50 text-red-700";
-              else buttonStyle = "border-gray-200 opacity-50"; // Dim other options
+              else buttonStyle = "border-gray-200 opacity-50";
             }
 
             return (
@@ -101,7 +95,6 @@ export default function QuizGame({ title, questions, onReset }) {
           })}
         </div>
 
-        {/* Explanation & Next Button */}
         {showExplanation && (
           <div className="bg-gray-50 p-6 border-t border-gray-100 animate-in slide-in-from-bottom-2">
             <div className="mb-4">

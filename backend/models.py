@@ -8,10 +8,9 @@ class Quiz(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     source_url = Column(String, index=True)
-    topic_summary = Column(Text, nullable=True) # Short summary of what was scraped
+    topic_summary = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    # Relationship: One Quiz has many Questions
     questions = relationship("Question", back_populates="quiz", cascade="all, delete-orphan")
 
 class Question(Base):
@@ -21,10 +20,9 @@ class Question(Base):
     quiz_id = Column(Integer, ForeignKey("quizzes.id"))
     
     question_text = Column(Text)
-    options = Column(JSON)  # Stores ["Option A", "Option B", ...]
+    options = Column(JSON)
     correct_answer = Column(String)
     explanation = Column(Text)
-    difficulty = Column(String) # Easy, Medium, Hard
+    difficulty = Column(String)
 
-    # Relationship link back to Quiz
     quiz = relationship("Quiz", back_populates="questions")

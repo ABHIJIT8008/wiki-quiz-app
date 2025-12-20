@@ -29,21 +29,17 @@ export default function HistoryList({ onSelectQuiz }) {
       const res = await axios.get(`${API_URL}/quizzes/${id}`);
       
       const dbData = res.data;
-      console.log("RAW DB DATA:", dbData); // Check your browser console for this!
+      console.log("RAW DB DATA:", dbData);
 
-      // --- ROBUST MAPPING ---
       const normalizedQuestions = dbData.questions.map((q, index) => {
         
-        // Try every possible way the DB might send the options
         const optA = q.choice_a || q.choiceA || q.option_a || q.options?.[0];
         const optB = q.choice_b || q.choiceB || q.option_b || q.options?.[1];
         const optC = q.choice_c || q.choiceC || q.option_c || q.options?.[2];
         const optD = q.choice_d || q.choiceD || q.option_d || q.options?.[3];
 
-        // Check if we actually found them
         const finalOptions = [optA, optB, optC, optD].filter(Boolean);
 
-        // Fallback if data is truly empty
         if (finalOptions.length === 0) {
           console.warn(`Question ${index} has no options!`, q);
           finalOptions.push("Option A missing", "Option B missing", "Option C missing", "Option D missing");
@@ -52,7 +48,7 @@ export default function HistoryList({ onSelectQuiz }) {
         return {
           question: q.question_text || q.question || "Question text missing",
           options: finalOptions,
-          correct_answer: q.correct_answer || optA, // Fallback to first option if answer missing
+          correct_answer: q.correct_answer || optA, 
           explanation: q.explanation || "No explanation provided.",
           difficulty: "Review"
         };
