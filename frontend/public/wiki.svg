@@ -1,0 +1,49 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="120" cy="120" r="110" fill="#0F172A"/>
+
+  <!-- Open Book Shape -->
+  <path d="M60 80 
+           C85 70, 110 70, 120 85
+           C130 70, 155 70, 180 80
+           V155
+           C155 145, 130 145, 120 160
+           C110 145, 85 145, 60 155
+           Z"
+        fill="#F8FAFC"/>
+
+  <!-- Center Divider -->
+  <line x1="120" y1="85" x2="120" y2="160"
+        stroke="#CBD5E1" stroke-width="2"/>
+
+  <!-- Question Mark -->
+  <path d="M120 105
+           C135 105, 140 115, 140 122
+           C140 132, 125 134, 125 145"
+        stroke="#2563EB" stroke-width="6"
+        fill="none" stroke-linecap="round"/>
+
+  <circle cx="125" cy="152" r="4" fill="#2563EB"/>
+
+  <!-- AI Neural Dots -->
+  <circle cx="90" cy="95" r="4" fill="#22C55E"/>
+  <circle cx="150" cy="95" r="4" fill="#22C55E"/>
+  <circle cx="105" cy="135" r="4" fill="#22C55E"/>
+  <circle cx="135" cy="135" r="4" fill="#22C55E"/>
+
+  <!-- Neural Lines -->
+  <line x1="90" y1="95" x2="105" y2="135"
+        stroke="#22C55E" stroke-width="2"/>
+  <line x1="150" y1="95" x2="135" y2="135"
+        stroke="#22C55E" stroke-width="2"/>
+
+  <!-- App Name -->
+  <text x="120" y="205"
+        font-size="18"
+        font-weight="600"
+        text-anchor="middle"
+        fill="#E5E7EB"
+        font-family="Segoe UI, Roboto, sans-serif">
+    WikiQuiz AI
+  </text>
+</svg>
