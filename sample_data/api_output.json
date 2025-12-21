@@ -1,0 +1,26 @@
+[
+  {
+    "question": "Which company did Elon Musk co-found that focuses on tunnel construction?",
+    "options": [
+      "SpaceX",
+      "Tesla",
+      "The Boring Company",
+      "Neuralink"
+    ],
+    "correct_answer": "The Boring Company",
+    "explanation": "Musk founded The Boring Company in 2016 to construct tunnels.",
+    "difficulty": "Medium"
+  },
+  {
+    "question": "What is the primary function of Neuralink?",
+    "options": [
+      "Electric Vehicle Manufacturing",
+      "Space Exploration",
+      "Developing Brain-Computer Interfaces",
+      "Social Media Management"
+    ],
+    "correct_answer": "Developing Brain-Computer Interfaces",
+    "explanation": "Neuralink is a neurotechnology company developing implantable brain–machine interfaces.",
+    "difficulty": "Hard"
+  }
+]
