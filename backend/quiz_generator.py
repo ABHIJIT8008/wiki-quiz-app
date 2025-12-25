@@ -5,7 +5,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash-exp",
+    model="gemini-3-flash-preview",
     google_api_key=os.getenv("GOOGLE_API_KEY"),
     temperature=0.3
 )
